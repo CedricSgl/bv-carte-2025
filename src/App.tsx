@@ -1,3 +1,4 @@
+import { Link } from 'lucide-react'
 import './App.css'
 import { H1 } from './components/h1'
 import { H2 } from './components/h2'
@@ -53,10 +54,10 @@ const menuItems: MenuCategory[] = [
           "Bière à l'amertume subtile et aux notes gustatives complexes."
       },
       {
-        name: 'Wunder Lager',
-        abv: '3.8%',
+        name: 'Taras Boulba',
+        abv: '4.5%',
         price: '3,5€',
-        description: 'Blonde légère en alcool, riche en houblons aromatiques.'
+        description: "Blonde à l'amertume forte et persistante."
       },
       {
         name: 'Fructus (Lupulus)',
@@ -71,10 +72,10 @@ const menuItems: MenuCategory[] = [
         description: 'Blonde légère et rafraîchissante.'
       },
       {
-        name: 'Corsendonk blonde',
-        abv: '6.5%',
+        name: 'Tongerlo Blonde',
+        abv: '6%',
         price: '4€',
-        description: 'Bière "Belgian Pale Ale".'
+        description: "Bière d'abbaye belge aux saveurs équilibrées et rafinées"
       },
       {
         name: 'Hopera (Lupulus)',
@@ -132,7 +133,7 @@ const menuItems: MenuCategory[] = [
     name: 'Vins',
     items: [
       { name: 'Vin Blanc', description: 'Viognier "les îles blanches", 2024' },
-      { name: 'Vin Rouge', description: 'Chapelle Saint-Martin 2024' },
+      { name: 'Vin Rouge', description: 'Chapelle Saint-Martin 2023/2024' },
       { name: 'Verre', price: '3€' },
       { name: 'Bouteille', price: '12€' }
     ]
@@ -140,7 +141,11 @@ const menuItems: MenuCategory[] = [
   {
     name: 'Boissons chaudes',
     items: [
-      { name: 'Infusion du comédien', price: '2€' },
+      {
+        name: 'Infusion du comédien',
+        price: '2€',
+        description: 'Miel, gingembre et citron'
+      },
       { name: 'Chocolat Chaud', price: '2€' },
       { name: 'Café', price: '2€' },
       { name: 'Thé', price: '2€' }
@@ -199,7 +204,7 @@ function App () {
         {menuItems.map(category => (
           <AccordionItem key={category.name} value={category.name}>
             <AccordionTrigger>
-              {category.name}
+              <span className='font-bold text-base'>{category.name}</span>
               <span className='ml-auto text-right'>{category.size}</span>
             </AccordionTrigger>
             <AccordionContent className='flex flex-col gap-4 text-left'>
@@ -207,7 +212,7 @@ function App () {
                 {category.items.map(item => (
                   <li key={item.name} className='flex flex-col'>
                     <div className='flex items-start justify-between'>
-                      <span className='pr-4'>{item.name}</span>
+                      <span className='pr-4 font-bold'>{item.name}</span>
                       {item.price && (
                         <span className='text-right whitespace-nowrap'>
                           {item.price}
@@ -234,6 +239,12 @@ function App () {
           </AccordionItem>
         ))}
       </Accordion>
+      <a
+        href='https://beauvignet.tourinnes.be/assets/Carte 2025 finale Tongerlo.pdf'
+        className='fixed bottom-4 right-4  shadow-lg'
+      >
+        <Link /> La Carte PDF
+      </a>
     </>
   )
 }
