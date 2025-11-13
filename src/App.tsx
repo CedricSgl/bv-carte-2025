@@ -1,4 +1,21 @@
-import { Link } from "lucide-react";
+import {
+  AppleIcon,
+  BarrelIcon,
+  BeanIcon,
+  BeerIcon,
+  BottleWineIcon,
+  CakeSliceIcon,
+  CoffeeIcon,
+  CupSodaIcon,
+  GlassWaterIcon,
+  GrapeIcon,
+  HandPlatterIcon,
+  HopIcon,
+  Link,
+  PizzaIcon,
+  SandwichIcon,
+  WineIcon,
+} from "lucide-react";
 import "./App.css";
 import { H1 } from "./components/h1";
 import { H2 } from "./components/h2";
@@ -15,12 +32,14 @@ type MenuItem = {
   price?: string;
   description?: string;
   imageUrl?: string;
+  icon?: React.ElementType;
 };
 
 type MenuCategory = {
   name: string;
   size?: string;
   items: MenuItem[];
+  icon?: React.ElementType;
 };
 
 const menuItems: MenuCategory[] = [
@@ -33,18 +52,22 @@ const menuItems: MenuCategory[] = [
         abv: "4.5%",
         price: "2,5€",
         description: "Bière blonde légèrement trouble, fruitée et houblonnée.",
+        icon: BarrelIcon,
       },
       {
         name: 'La Bierbeek "Saison"',
         abv: "5.5%",
         price: "2,5€",
         description: "Bière à l'amertume douce, légèrement fruitée et épicée.",
+        icon: BarrelIcon,
       },
     ],
+    icon: BarrelIcon,
   },
   {
     name: "Bières en bouteille",
     size: "33cl",
+    icon: BeerIcon,
     items: [
       {
         name: "Placebo (Lupulus)",
@@ -52,60 +75,70 @@ const menuItems: MenuCategory[] = [
         price: "3,5€",
         description:
           "Bière à l'amertume subtile et aux notes gustatives complexes.",
+        icon: BeerIcon,
       },
       {
         name: "Taras Boulba",
         abv: "4.5%",
         price: "3,5€",
         description: "Blonde à l'amertume forte et persistante.",
+        icon: BeerIcon,
       },
       {
         name: "Fructus (Lupulus)",
         abv: "4.2%",
         price: "3,5€",
         description: "Bière rouge fruitée, légèrement sucrée.",
+        icon: BeerIcon,
       },
       {
         name: "La Tharée Légère",
         abv: "4.5%",
         price: "4€",
         description: "Blonde légère et rafraîchissante.",
+        icon: BeerIcon,
       },
       {
         name: "Tongerlo Blonde",
         abv: "6%",
         price: "4€",
         description: "Bière d'abbaye belge aux saveurs équilibrées et rafinées",
+        icon: BeerIcon,
       },
       {
         name: "Hopera (Lupulus)",
         abv: "6%",
         price: "4€",
         description: "Bière blonde type IPA.",
+        icon: BeerIcon,
       },
       {
         name: "Jambe de bois",
         abv: "8%",
         price: "4€",
         description: "Blonde triple à l'amertume prononcée.",
+        icon: BeerIcon,
       },
       {
         name: "Natte Lore",
         abv: "9.1%",
         price: "4€",
         description: "Blonde forte aux aromes et à l'amertume prononcée.",
+        icon: BeerIcon,
       },
       {
         name: "Witkap Pater Brune",
         abv: "8%",
         price: "4€",
         description: 'Brune "double", douce.',
+        icon: BeerIcon,
       },
     ],
   },
   {
     name: "Grandes bouteilles",
     size: "75cl",
+    icon: HopIcon,
     items: [
       {
         name: "La Lustrée (Tharée)",
@@ -113,12 +146,14 @@ const menuItems: MenuCategory[] = [
         price: "9€",
         description:
           "Pale Ale aux saveurs puissantes, avec une amertume bien présente et des notes distinctes de pin Douglas et de pamplemousse.",
+        icon: HopIcon,
       },
       {
         name: "La Tharée Triple",
         abv: "8%",
         price: "9€",
         description: "Bière forte aux notes agrumeuses de douglas.",
+        icon: HopIcon,
       },
       {
         name: "Lupulus Blonde",
@@ -126,65 +161,96 @@ const menuItems: MenuCategory[] = [
         price: "9€",
         description:
           "Une rafraichissante amertume maîtrisée et ajustée par un note épicée de thym.",
+        icon: HopIcon,
       },
     ],
   },
   {
     name: "Vins",
+    icon: GrapeIcon,
     items: [
-      { name: "Vin Blanc", description: 'Viognier "les îles blanches", 2024' },
-      { name: "Vin Rouge", description: "Chapelle Saint-Martin 2023/2024" },
-      { name: "Verre", price: "3€" },
-      { name: "Bouteille", price: "12€" },
+      {
+        name: "Vin Blanc",
+        description: 'Viognier "les îles blanches", 2024',
+        icon: GrapeIcon,
+      },
+      {
+        name: "Vin Rouge",
+        description: "Chapelle Saint-Martin 2023/2024",
+        icon: GrapeIcon,
+      },
+      { name: "Verre", price: "3€", icon: WineIcon },
+      { name: "Bouteille", price: "12€", icon: BottleWineIcon },
     ],
   },
   {
     name: "Boissons chaudes",
+    icon: CoffeeIcon,
     items: [
       {
         name: "Infusion du comédien",
         price: "2€",
         description: "Miel, gingembre et citron",
+        icon: CoffeeIcon,
       },
-      { name: "Chocolat Chaud", price: "2€" },
-      { name: "Café", price: "2€" },
-      { name: "Thé", price: "2€" },
+      { name: "Chocolat Chaud", price: "2€", icon: CoffeeIcon },
+      { name: "Café", price: "2€", icon: CoffeeIcon },
+      { name: "Thé", price: "2€", icon: CoffeeIcon },
     ],
   },
   {
     name: "Softs",
+    icon: CupSodaIcon,
     items: [
       {
         name: "Limonade maison",
         price: "1,5€",
         description: "Citron et menthe",
+        icon: CupSodaIcon,
       },
-      { name: "Jus", price: "1,5€" },
-      { name: "Eau pétillante", price: "1,5€" },
-      { name: "Coca-Cola", price: "2€" },
-      { name: "Eau plate", price: "0€", description: "du robinet" },
+      { name: "Jus", price: "1,5€", icon: AppleIcon },
+      { name: "Eau pétillante", price: "1,5€", icon: GlassWaterIcon },
+      { name: "Coca-Cola", price: "2€", icon: CupSodaIcon },
+      {
+        name: "Eau plate",
+        price: "0€",
+        description: "du robinet",
+        icon: GlassWaterIcon,
+      },
     ],
   },
   {
     name: "Petite restauration",
+    icon: PizzaIcon,
     items: [
-      { name: "Chips", price: "1,5€" },
-      { name: "Tarte sucrée", price: "3,5€" },
+      { name: "Chips", price: "1,5€", icon: BeanIcon },
+      { name: "Tarte sucrée", price: "3,5€", icon: CakeSliceIcon },
       {
         name: "Assiette apéro",
         price: "6€",
         description: "Mixte ou végétarienne",
+        icon: PizzaIcon,
       },
       {
         name: "Croque-Monsieur",
-        price: "7€",
-        description:
-          "et sa petite salade - voir tableau - vendredi soir et samedi midi",
+        // price: "5€",
+        description: "et sa petite salade - vendredi soir et samedi midi",
+        icon: SandwichIcon,
       },
+      {
+        name: "Croque-Monsieur 1 pièce",
+        price: "5€",
+      },
+      {
+        name: "Croque-Monsieur 2 pièces",
+        price: "8€",
+      },
+
       {
         name: "Plat du week-end",
         price: "12€",
         description: "Voir tableau - samedi soir et le dimanche",
+        icon: HandPlatterIcon,
       },
     ],
   },
@@ -225,7 +291,12 @@ function App() {
         {menuItems.map((category) => (
           <AccordionItem key={category.name} value={category.name}>
             <AccordionTrigger>
-              <span className="font-bold text-base">{category.name}</span>
+              <span className="font-bold text-base">
+                {category.icon && (
+                  <category.icon className="inline-block mr-1 h-4 w-4 " />
+                )}
+                {category.name}
+              </span>
               <span className="ml-auto text-right">{category.size}</span>
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-left">
@@ -233,7 +304,12 @@ function App() {
                 {category.items.map((item) => (
                   <li key={item.name} className="flex flex-col">
                     <div className="flex items-start justify-between">
-                      <span className="pr-4 font-bold">{item.name}</span>
+                      <span className="pr-4 font-bold">
+                        {item.icon && (
+                          <item.icon className="inline-block mr-1 h-4 w-4 text-muted-foreground" />
+                        )}
+                        {item.name}
+                      </span>
                       {item.price && (
                         <span className="text-right whitespace-nowrap">
                           {item.price}
@@ -261,7 +337,10 @@ function App() {
         ))}
         <AccordionItem value="plats-du-weekend">
           <AccordionTrigger>
-            <span className="font-bold text-base">Plat(s) du week-end</span>
+            <span className="font-bold text-base">
+              <HandPlatterIcon className="inline-block mr-1 h-4 w-4 " />
+              Plat(s) du week-end
+            </span>
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4 text-left">
             <ul>
@@ -282,7 +361,7 @@ function App() {
         </AccordionItem>
       </Accordion>
       <a
-        href="https://beauvignet.tourinnes.be/assets/Carte 2025 finale Tongerlo.pdf"
+        href="https://beauvignet.tourinnes.be/assets/Carte 2025 finale V3.pdf"
         className="fixed bottom-4 right-4  shadow-lg"
       >
         <Link /> La Carte PDF
